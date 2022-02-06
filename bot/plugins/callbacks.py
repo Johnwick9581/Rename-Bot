@@ -21,7 +21,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
     elif cb.data == "showThumbnail":
         thumbnail = await db.get_thumbnail(cb.from_user.id)
         if not thumbnail:
-            await cb.answer("You didn't set any custom thumbnail!", show_alert=True)
+            await cb.answer("Mundu Thumbnail pettara batta", show_alert=True)
         else:
             await cb.answer()
             await c.send_photo(cb.message.chat.id, thumbnail, "Custom Thumbnail",
@@ -44,7 +44,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
         else:
             await db.set_thumbnail(cb.from_user.id, from_user_thumb.photo.file_id)
             await cb.message.edit("Okay!\n"
-                                  "Now I will apply this thumbnail to next uploads.",
+                                  "Thumbnail set vro, leech sesko ika",
                                   reply_markup=types.InlineKeyboardMarkup(
                                       [[types.InlineKeyboardButton("Show Settings",
                                                                    callback_data="showSettings")]]
