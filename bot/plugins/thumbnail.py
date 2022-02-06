@@ -14,7 +14,7 @@ async def show_thumbnail(c: Client, m: "types.Message"):
     await add_user_to_database(c, m)
     thumbnail = await db.get_thumbnail(m.from_user.id)
     if not thumbnail:
-        return await m.reply_text("You didn't set custom thumbnail!")
+        return await m.reply_text("mundu thumbnail petti dobbuchuko")
     await c.send_photo(m.chat.id, thumbnail, caption="Custom Thumbnail",
                        reply_markup=types.InlineKeyboardMarkup(
                            [[types.InlineKeyboardButton("Delete Thumbnail",
@@ -31,7 +31,7 @@ async def set_thumbnail(c: Client, m: "types.Message"):
     await add_user_to_database(c, m)
     await db.set_thumbnail(m.from_user.id, m.reply_to_message.photo.file_id)
     await m.reply_text("Okay,\n"
-                       "I will use this image as custom thumbnail.",
+                       "Thumbnail saved vro, appy ga rename sesko vro😊.",
                        reply_markup=types.InlineKeyboardMarkup(
                            [[types.InlineKeyboardButton("Delete Thumbnail",
                                                         callback_data="deleteThumbnail")]]
